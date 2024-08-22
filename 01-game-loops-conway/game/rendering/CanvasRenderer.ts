@@ -15,6 +15,8 @@ export class CanvasRenderer implements IRenderer {
 
     public drawRect(x: number, y: number, width: number, height: number, color: string = "#000000") {
         this.context.fillStyle = color;
-        this.context.fillRect(x, y, width, height);
+
+        const invertedY = this.canvas.height - y - height;
+        this.context.fillRect(x, invertedY, width, height);
     }
 }
