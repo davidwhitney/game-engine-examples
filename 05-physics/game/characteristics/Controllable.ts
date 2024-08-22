@@ -12,11 +12,23 @@ export class Controllable implements ICharacteristic {
         }, defaultInput);
 
         if (requestedActions.left) {
-            entity.x -= 5;
+            entity.velocityX -= 1;
         }
 
         if (requestedActions.right) {
-            entity.x += 5;
+            entity.velocityX += 1;
         }
+
+        if (requestedActions.jump && entity.velocityY === 0) {
+            entity.isJumping = true;
+            entity.velocityY = 8;
+        }
+
+        if (!requestedActions.left && !requestedActions.right) {
+            entity.velocityX = 0;
+        }
+
+        entity.velocityX = entity.velocityX > 5 ? 5 : entity.velocityX;
+        entity.velocityX = entity.velocityX < -5 ? -5 : entity.velocityX;
     }
 }
