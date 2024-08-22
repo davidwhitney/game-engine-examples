@@ -1,3 +1,5 @@
+import { IRenderer, IScene } from "../Interfaces";
+
 export class ConwaysGameOfLife implements IScene {
     private numColumns = 75;
     private numRows = 40;

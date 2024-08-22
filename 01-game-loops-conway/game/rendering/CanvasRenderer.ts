@@ -1,3 +1,5 @@
+import { IRenderer } from "../Interfaces";
+
 export class CanvasRenderer implements IRenderer {
     private canvas: HTMLCanvasElement;
     private context: CanvasRenderingContext2D;

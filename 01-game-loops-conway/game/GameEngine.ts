@@ -1,3 +1,5 @@
+import { IRenderer, IScene } from "./Interfaces";
+
 export class GameEngine {
     private renderer: IRenderer;
     private scene: IScene;
