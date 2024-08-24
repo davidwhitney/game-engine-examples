@@ -18,8 +18,7 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'app/index.html'),
-        nested: resolve(__dirname, 'app/spectate.html')
+        main: resolve(__dirname, 'app/index.html')
       }
     }
   },
