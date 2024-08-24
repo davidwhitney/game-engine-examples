@@ -1,0 +1,514 @@
+:root {
+       --dark: #221a56;
+      --grape: #762d89;
+  --raspberry: #b03c94;
+  --strawberry: #f03476;
+  --marmalade: #ff8b3c;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  position: fixed;
+  width: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: linear-gradient(135deg, #221a56 13.11%, #762d89 13.11%, #762d89 50%, #221a56 50%, #221a56 63.11%, #762d89 63.11%, #762d89 100%);
+  background-size: 1725.34px 1725.34px;
+  font-family: 'Grandstander', cursive;
+  color: white;
+  overflow: hidden;
+  height: 100%;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 6;
+}
+
+h1 {
+  margin: 1rem;
+  font-size: 20px;
+  letter-spacing: 2px;
+  background-size: 1.2em;
+  color: var(--strawberry);
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.debug-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.debug {
+  position: relative;
+  display: flex;
+  width: 54px;
+  height: 30px;
+  margin: 1rem;
+  float: right;
+}
+
+.debug-text {
+  position: absolute;
+  left: -56px;
+  font-weight: bold;
+  line-height: 30px;
+  color: white;
+}
+
+.checkbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #aaa;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--dark);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.checkbox:checked + .slider {
+  background-color: white;
+}
+
+.checkbox:checked + .slider:before {
+  -webkit-transform: translateX(24px);
+  -ms-transform: translateX(24px);
+  transform: translateX(24px);
+  background-color: var(--strawberry);
+  box-shadow: -3px 0px 1px var(--dark);
+}
+
+.intro {
+  position: absolute;
+  display: flex;
+  margin: 1rem 0;
+  font-size: 1.2em;
+  line-height: 1.4rem;
+}
+
+.controls {
+  width: 100%;
+  max-width: 400px;
+  margin-left: 2rem;
+}
+
+.loading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90vh;
+  max-width: 250px;
+  max-height: 250px;
+  height: 90vw;
+  background: url(./public/spread.gif) no-repeat center;
+  background-size: 100%;
+  z-index: 5;
+  transform: translate(-50%, -50%);
+}
+
+.loading::after {
+  content: "loading...";
+  font-size: 3vw;
+  color: white;
+  transform: translateY(3vw);
+}
+
+.container {
+  min-height: 300px;
+  position: relative;
+  z-index: 2;
+}
+
+#game {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.gameactive .loading {
+  display: none;
+}
+
+.gameover .loading {
+  display: none;
+}
+
+h2 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+  margin: 0 0 1rem;
+}
+
+h2:after {
+  content: "Game over";
+}
+
+.completed h2:after{
+  content: "You are Jam!"
+}
+
+h3 {
+  font-weight: normal;
+  text-align: center;
+  font-size: 1.4em;
+  margin: 0 0 1rem;
+}
+
+canvas {
+  background-color: #ffe6a4;
+}
+
+#scores {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  background: url(public/pixelsplat.png) center 70% no-repeat;
+  background-size: 150vw;
+  transform: translatex(-50%);
+  z-index: 5;
+}
+
+.completed #scores {
+  background: url(public/jamsuccess.png) top no-repeat;
+  background-size: 97vh;
+}
+
+.gameover #scores {
+  display: flex;
+}
+
+.scores-text:after {
+  content: "Tap screen to play again! ▶️"
+}
+
+.scores-text {
+  text-align: center;
+  margin: 1rem 0 0;
+
+}
+
+.entry {
+  color: var(--grape);
+  min-width: 260px;
+}
+
+.time {
+  float: right;
+}
+
+.entry:nth-child(odd) {
+  color: var(--dark)
+}
+
+#signup-form {
+  width: calc(100% - 2rem);
+  max-width: 700px;
+  margin: 0 auto;
+  overflow-y: auto;
+  height: calc(100vh - 5rem);
+  margin-top: 3rem;
+}
+
+#guys {
+  margin-top: 1rem;
+}
+
+.guy {
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid var(--dark);
+  min-height: 5px;
+  min-width: 5px;
+}
+
+.player {
+  position: absolute;
+  bottom: 0.4vw;
+  left: 0%;
+  transform: translateX(-50%);
+  color: var(--dark);
+  font-weight: bold;
+  display: block;
+  width: max-content;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+#timer {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 1rem;
+  color: var(--dark);
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+
+}
+
+@media (max-width: 999px) {
+  #game-canvas {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  #scores-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    max-height: calc(100vh - 12rem);
+    overflow: auto;
+  }
+
+  .entry {
+    display: contents;
+  }
+
+  .name {
+    text-align: right;
+  }
+
+}
+
+#orientation-warning {
+  display: none;
+}
+
+#orientation-warning.bad-orientation {
+  display: block;    
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100vw - 4rem);
+  padding: 2rem;
+  height: 100vh;
+  font-size: 15vw;
+  text-align: center;
+  background-color: #762d89;
+}
+
+@media (min-width: 1000px) {
+  header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+    max-width: 1000px;
+    margin: 0 auto 0rem;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 2rem 0 1.6rem;
+    padding-left: 4rem;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    color: white;
+    background: url(android-chrome-512x512.png) no-repeat -7px 20px;
+    background-size: 56px;
+  }
+
+  h2 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  #game {
+   height: calc(100vh - 6rem);
+  }
+
+  canvas {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px 4px var(--dark);
+  }
+
+  .intro {
+    position: static;
+    display: flex;
+    margin: 1rem 0;
+    font-size: 1.2em;
+    line-height: 1.4rem;
+  }
+
+  .loading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    width: 40vw;
+    max-width: 250px;
+    max-height: 250px;
+    height: 40vw;
+    background: url(./public/spread.gif) no-repeat center;
+    background-size: 100%;
+    z-index: 5;
+    transform: translate(-50%, 0%);
+  }
+
+  #scores {
+    display: none;
+    justify-content: flex-start;
+    position: absolute;
+    background: url(public/pixelsplat.png) center -10rem no-repeat;
+    background-size: contain;
+    padding-top: 10rem;
+  }
+
+  .scores-text:after {
+    content: "Press any key to play again!"
+  }
+
+  .completed #scores {
+    background-size: 500px;
+    background-position: center 9rem;
+  }
+
+  .gameover #scores {
+    display: flex;
+  }
+
+  .entry {
+    margin-bottom: 10px;
+  }
+
+  #scores-list {
+    max-height: 16rem;
+    overflow: auto;
+    padding-right: 1rem;
+  }
+
+  #timer {
+    color: var(--dark);
+    position: absolute;
+    top: calc(552px + 5rem);
+    margin-left: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
+
+.gameover #game {
+  filter: grayscale(100%);
+}
+
+@media (max-height: 552px ) {
+  #game {
+    transform: translateY(-10%);
+    max-width: 100%;
+  }
+
+  .gamestart h1 {
+    color: var(--dark);
+  }
+  .container {
+    min-height: 100%;
+  }
+
+  .intro {
+    display: none;
+  }
+
+  h1 {
+    margin: .5rem;
+    font-size: 30px;
+  }
+
+  h2 {
+    margin-top: -3rem;
+  }
+
+}
+
+.overview #scores {
+  display: flex;
+}
+
+.overview {
+  background: #03020d!important;
+}
+
+
+#scoreboard {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+#scoreboard #scores-list {
+  height: calc(100vh - 13rem - 7vw);
+  max-height: calc(100vh - 13rem - 7vw);
+  overflow: auto;
+}
+
+#scoreboard .entry {
+  color: white;
+  font-size: 1.2rem;
+}
+
+#scoreboard .entry:nth-child(odd) {
+  color: var(--marmalade);
+}
+
+#scoreboard .time {
+  float: right;
+  margin-left: 2rem;
+}

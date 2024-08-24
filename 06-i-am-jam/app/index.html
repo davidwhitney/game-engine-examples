@@ -1,0 +1,72 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>I am JAM</title>
+  <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+  <script src="./script.ts" type="module"></script>
+  <script src="./analytics.ts" type="module"></script>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@500&display=swap" rel="stylesheet">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="gameunknown">
+  <header>
+    <h1>I am JAM</h1>
+    <div id="timer"></div>
+  </header>
+
+  <div id="signup-form"></div>
+  <div id="orientation-warning">
+    <p>Please rotate your device to landscape to play.</p>
+  </div>
+  <div id="game">
+    <div class="loading"></div>
+    <div id="container" class="container"></div>
+    <div class="debug-container">
+      <label class="debug">
+        <span class="debug-text">Debug:</span>
+        <input type="checkbox" class="checkbox" id="debug" name="debug">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="intro">
+      <p>You are fruit, you want to become Jam. Make your way through the kitchen and into the jam pan to win.<br><br>
+        WSAD to walk. Hold shift to run. SPACE to jump.</p>
+      <img class="controls" src="wsad.png" alt="an illustration of the WSAD keys, space bar and shift keys">
+    </div>
+  </div>
+  
+  <div id="scores">
+    <h2></h2>
+    <h3>High Scores</h3>
+    <div id="scores-list"></div>
+    <p class="scores-text"></p>
+  </div>
+ 
+  <template id="score-item">
+    <div class="entry">
+      <span class="name">Name</span>
+      <span class="time">Time</span>
+    </div>
+  </template>
+
+</body>
+
+</html>

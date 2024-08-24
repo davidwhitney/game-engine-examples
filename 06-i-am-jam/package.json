@@ -1,0 +1,19 @@
+{
+  "name": "become-jam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx vite serve",
+    "test": "vitest run",
+    "test:app": "vitest run",
+    "build:azure": "npx vite build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.7.4",
+    "vite": "^3.2.10",
+    "vitest": "^2.0.5"
+  }
+}
